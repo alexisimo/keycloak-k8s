@@ -38,7 +38,7 @@ metadata:
 spec:
   serviceName: keycloak-discovery
   # Run with one replica to save resources, or with two replicas to allow for rolling updates for configuration changes
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: keycloak
@@ -85,7 +85,7 @@ spec:
             - name: 'KC_DB_URL_DATABASE'
               value: 'keycloak'
             - name: 'KC_DB_URL_HOST'
-              value: 'postgres'
+              value: '10.100.59.36'
             - name: 'KC_DB'
               value: 'postgres'
             # In a production environment, use a secret to store username and password to the database
@@ -192,7 +192,7 @@ spec:
   #   - hosts:
   #       - site-domain.com
   rules:
-    - host: keycloak-admin.dev.ed.dataspaceunit.linkeddata.es #site-domain.com
+    - host: site-domain.com #site-domain.com
       http:
         paths:
           - path: /
